@@ -26,10 +26,12 @@ import indexScreen from './src/screens/indexScreen';
 import React from 'react'
 import { Provider } from './src/context/BlogContext';
 import ShowBlog from './src/screens/ShowBlog';
+import CreateBlog from './src/screens/CreateBlog';
 
 const navigator = createStackNavigator({
   Index: indexScreen,
-  ShowBlog: ShowBlog
+  ShowBlog: ShowBlog,
+  CreateBlog: CreateBlog
 },
 {
   initialRouteName: 'Index',
