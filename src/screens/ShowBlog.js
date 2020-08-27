@@ -6,7 +6,7 @@ const ShowBlog = (props) => {
     const id = props.navigation.getParam('id');
     const {state} = useContext(Context);
 
-    const blogPost = state.find( (blogPost) => blogPost.id == id)
+    const blogPost = state.find( (blogPost) => blogPost.id === id)
 
     return (
     <View>

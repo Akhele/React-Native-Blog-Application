@@ -14,7 +14,7 @@ const indexScreen = ({navigation}) => {
             <FlatList
             scrollEnabled
                 data={state}
-                keyExtractor={ (data) => data.title }
+                keyExtractor={ (data) => data.id.toString() }
                 renderItem={
                     ({item}) => {
                         return (
