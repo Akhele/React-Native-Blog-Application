@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { View, Text, StyleSheet, Button} from 'react-native';
 import {Context,Provider} from '../context/BlogContext';
-import { FlatList } from 'react-native-gesture-handler';
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import { Entypo } from '@expo/vector-icons'; 
 
 
 const indexScreen = () => {
-    const {state, addBlogPost} = useContext(Context)
+    const {state, addBlogPost, deleteBlogPost} = useContext(Context)
     return (
         <View>
             <Button title='Add Blog Post' onPress={addBlogPost} />
@@ -19,7 +19,9 @@ const indexScreen = () => {
                     ({item}) => {
                     return <View style={styles.mainView}>
                         <Text style={styles.title}>{item.title}</Text>
-                        <Entypo style={styles.icon} name="trash" size={24} color="black" />
+                        <TouchableOpacity onPress={() => {deleteBlogPost(item.id)}} >
+                            <Entypo style={styles.icon} name="trash" size={24} color="black" />
+                        </TouchableOpacity>
                         </View>
                     }
                 }
