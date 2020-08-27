@@ -5,7 +5,7 @@ import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import { Entypo } from '@expo/vector-icons'; 
 
 
-const indexScreen = () => {
+const indexScreen = ({navigation}) => {
     const {state, addBlogPost, deleteBlogPost} = useContext(Context)
     return (
         <View>
@@ -17,12 +17,16 @@ const indexScreen = () => {
                 keyExtractor={ (data) => data.title }
                 renderItem={
                     ({item}) => {
-                    return <View style={styles.mainView}>
-                        <Text style={styles.title}>{item.title}</Text>
-                        <TouchableOpacity onPress={() => {deleteBlogPost(item.id)}} >
-                            <Entypo style={styles.icon} name="trash" size={24} color="black" />
-                        </TouchableOpacity>
-                        </View>
+                        return (
+                                <TouchableOpacity onPress={() => navigation.navigate('ShowBlog',{id: item.id})}>
+                                    <View style={styles.mainView}>
+                                        <Text style={styles.title}>{item.title}</Text>
+                                        <TouchableOpacity onPress={() => {deleteBlogPost(item.id)}} >
+                                            <Entypo style={styles.icon} name="trash" size={24} color="black" />
+                                        </TouchableOpacity>
+                                    </View>
+                                </TouchableOpacity>
+                        )
                     }
                 }
             />
