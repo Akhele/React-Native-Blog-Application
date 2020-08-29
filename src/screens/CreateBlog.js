@@ -16,9 +16,11 @@ const CreateBlog = (props) => {
             <TextInput value={content} onChangeText={(text) => {setContent(text)}} style={styles.input} autoCorrect={false} />
 
             <Button title="Add Blog Post" onPress={() => {
-                        addBlogPost(title,content)
-                        alert('Post Added Successfully')
-                        props.navigation.navigate('Index')
+                        addBlogPost(title,content, () => {
+                            alert('Post Added Successfully')
+                            props.navigation.navigate('Index')
+                        })
+                        
                     }}/>
     </View>
     );
