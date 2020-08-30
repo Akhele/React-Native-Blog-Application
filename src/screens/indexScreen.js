@@ -7,11 +7,9 @@ import { Entypo } from '@expo/vector-icons';
 
 
 const indexScreen = ({navigation}) => {
-    const {state, addBlogPost, deleteBlogPost} = useContext(Context)
+    const {state, deleteBlogPost} = useContext(Context)
     return (
         <View>
-            <Button title='Add Blog Post' onPress={addBlogPost} />
-
             <FlatList
             scrollEnabled
                 data={state}
