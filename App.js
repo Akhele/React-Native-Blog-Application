@@ -27,11 +27,13 @@ import React from 'react'
 import { Provider } from './src/context/BlogContext';
 import ShowBlog from './src/screens/ShowBlog';
 import CreateBlog from './src/screens/CreateBlog';
+import EditBlog from './src/screens/EditBlog';
 
 const navigator = createStackNavigator({
   Index: indexScreen,
   ShowBlog: ShowBlog,
-  CreateBlog: CreateBlog
+  CreateBlog: CreateBlog,
+  EditBlog: EditBlog
 },
 {
   initialRouteName: 'Index',

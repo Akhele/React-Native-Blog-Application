@@ -4,6 +4,7 @@ import {Context} from '../context/BlogContext';
 import { FontAwesome } from '@expo/vector-icons'; 
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
+
 const ShowBlog = (props) => {
     const id = props.navigation.getParam('id');
     const {state} = useContext(Context);
@@ -21,8 +22,8 @@ const ShowBlog = (props) => {
 ShowBlog.navigationOptions = ({navigation}) => {
     return {
     headerRight: () => (
-        <TouchableOpacity onPress={() => navigation.navigate('EditBlog')}>
-            <FontAwesome style={styles.addIcon} name="edit" size={24} color="black" />
+        <TouchableOpacity onPress={() => navigation.navigate('EditBlog',{id: navigation.getParam('id')})}>
+            <FontAwesome style={styles.EditIcon} name="edit" size={35} color="black" />
         </TouchableOpacity>
     ),
     };
@@ -39,6 +40,9 @@ const styles = StyleSheet.create({
     },
     content: {
         fontSize: 20
+    },
+    EditIcon: {
+        margin: 5
     }
 });
 
