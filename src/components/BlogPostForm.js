@@ -3,10 +3,10 @@ import { View, StyleSheet,Text,Button } from 'react-native';
 import {Context} from '../context/BlogContext'
 import { TextInput } from 'react-native-gesture-handler';
 
-const BlogPostForm = () => {
+const BlogPostForm = ({onSubmit, values}) => {
 
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
+    const [title, setTitle] = useState(values.title);
+    const [content, setContent] = useState(values.content);
 
 
     return (
@@ -18,14 +18,18 @@ const BlogPostForm = () => {
             <TextInput value={content} onChangeText={(text) => {setContent(text)}} style={styles.input} autoCorrect={false} />
 
             <Button title="Save" onPress={() => {
-                        // addBlogPost(title,content, () => {
-                        //     alert('Post Added Successfully')
-                        //     props.navigation.navigate('Index')
-                        // })
+                        onSubmit(title,content)
                         
                     }}/>
     </View>
     );
+};
+
+BlogPostForm.defaultProps = {
+    values : {
+        title: '',
+        content: ''
+    }
 };
 
 const styles = StyleSheet.create({

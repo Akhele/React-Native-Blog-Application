@@ -8,7 +8,12 @@ const CreateBlog = (props) => {
     const {addBlogPost} = useContext(Context);
 
     return (
-           <BlogPostForm/>
+           <BlogPostForm onSubmit={(title, content)=> {
+                addBlogPost(title,content, () => {props.navigation.navigate('Index')});
+                alert('Post Added Successfully');
+              
+            }}
+           />
     );
 }
 const styles = StyleSheet.create({

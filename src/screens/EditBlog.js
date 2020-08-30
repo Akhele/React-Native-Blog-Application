@@ -11,7 +11,15 @@ const EditBlog = (props) => {
 
 
     return (
-        <BlogPostForm/>
+        <BlogPostForm 
+            onSubmit={(title, content)=> {
+                EditBlog(title,content, () => {
+                    alert('Post Edited Successfully');
+                    props.navigation.navigate('Index')
+                })
+            }}
+            values={{title: blogPost.title,content: blogPost.content}}
+    />
     );
 };
 
