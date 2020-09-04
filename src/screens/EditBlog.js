@@ -1,22 +1,22 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import { StyleSheet } from 'react-native';
 import {Context} from '../context/BlogContext';
 import BlogPostForm from '../components/BlogPostForm';
 
 const EditBlog = (props) => {
-    const {state} = useContext(Context);
+    const {state, editBlogPost} = useContext(Context);
 
     const blogPost = state.find( (blogPost) => blogPost.id === props.navigation.getParam('id'));
 
 
 
     return (
-        <BlogPostForm 
+        <BlogPostForm
             onSubmit={(title, content)=> {
-                EditBlog(title,content, () => {
+                editBlogPost(blogPost.id,title,content);
                     alert('Post Edited Successfully');
                     props.navigation.navigate('Index')
-                })
+                
             }}
             values={{title: blogPost.title,content: blogPost.content}}
     />

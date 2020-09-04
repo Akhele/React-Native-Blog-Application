@@ -1,6 +1,5 @@
-import React, {useContext, useState} from 'react';
+import React, {useState} from 'react';
 import { View, StyleSheet,Text,Button } from 'react-native';
-import {Context} from '../context/BlogContext'
 import { TextInput } from 'react-native-gesture-handler';
 
 const BlogPostForm = ({onSubmit, values}) => {
@@ -12,15 +11,12 @@ const BlogPostForm = ({onSubmit, values}) => {
     return (
     <View style={styles.mainView}>
             <Text style={styles.label} >Title :</Text>
-            <TextInput value={title} onChangeText={(text) => {setTitle(text)}} style={styles.input} autoCorrect={false}/>
+            <TextInput value={title} onChangeText={ text => setTitle(text) } style={styles.input}/>
             
             <Text style={styles.label}>Content :</Text>
-            <TextInput value={content} onChangeText={(text) => {setContent(text)}} style={styles.input} autoCorrect={false} />
+            <TextInput value={content} onChangeText={ text => setContent(text) } style={styles.input} />
 
-            <Button title="Save" onPress={() => {
-                        onSubmit(title,content)
-                        
-                    }}/>
+            <Button title="Save" onPress={() => onSubmit(title,content)}/>
     </View>
     );
 };
