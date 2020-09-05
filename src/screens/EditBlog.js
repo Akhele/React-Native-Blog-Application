@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import {Context} from '../context/BlogContext';
 import BlogPostForm from '../components/BlogPostForm';
 
@@ -11,15 +11,18 @@ const EditBlog = (props) => {
 
 
     return (
-        <BlogPostForm
-            onSubmit={(title, content)=> {
-                editBlogPost(blogPost.id,title,content);
-                    alert('Post Edited Successfully');
-                    props.navigation.navigate('Index')
+        <View>
+        <BlogPostForm onSubmit={(title, content)=> {
+                editBlogPost(blogPost.id,title,content,() => {props.navigation.navigate('Index'); alert('Post Edited Successfully');});
+                    
+
+                
                 
             }}
             values={{title: blogPost.title,content: blogPost.content}}
     />
+                </View>
+
     );
 };
 
