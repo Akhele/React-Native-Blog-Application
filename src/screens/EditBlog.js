@@ -13,7 +13,7 @@ const EditBlog = (props) => {
     return (
         <View>
         <BlogPostForm onSubmit={(title, content)=> {
-                editBlogPost(blogPost.id,title,content,() => {props.navigation.navigate('Index'); alert('Post Edited Successfully');});
+                editBlogPost(blogPost.id,title,content,() => {props.navigation.pop(); alert('Post Edited Successfully');});
                     
 
                 
