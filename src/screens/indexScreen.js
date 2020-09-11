@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, Text, StyleSheet, Button} from 'react-native';
 import {Context,Provider} from '../context/BlogContext';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
@@ -7,7 +7,11 @@ import { Entypo } from '@expo/vector-icons';
 
 
 const indexScreen = ({navigation}) => {
-    const {state, deleteBlogPost} = useContext(Context)
+    const {state, deleteBlogPost, getBlogPosts} = useContext(Context);
+
+    useEffect(() => {
+        getBlogPosts();
+    }, [])
     return (
         <View>
             <FlatList
