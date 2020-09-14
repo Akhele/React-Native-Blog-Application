@@ -29,11 +29,11 @@ const indexScreen = ({navigation}) => {
                 renderItem={
                     ({item}) => {
                         return (
-                                <TouchableOpacity onPress={() => navigation.navigate('ShowBlog',{id: item.id})}>
+                                <TouchableOpacity onPress={() => {navigation.navigate('ShowBlog',{id: item.id})}}>
                                     <View style={styles.mainView}>
                                         <Text style={styles.title}>{item.title}</Text>
                                         <TouchableOpacity onPress={() => {deleteBlogPost(item.id)}} >
-                                        <Entypo style={styles.TrashIcon} name="trash" size={24} color="black" />
+                                        <Entypo style={styles.TrashIcon} name="trash" size={25} color="black" />
                                         </TouchableOpacity>
                                     </View>
                                 </TouchableOpacity>
