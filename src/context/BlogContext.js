@@ -6,13 +6,11 @@ const blogReducer = (state, action) => {
     switch (action.type)
     {
         
-        case 'edit_blogPost' : {
-            return state.map(blogPost => {
-                    return blogPost.id === action.payload.id ? action.payload : blogPost;
-                    })
-            
-
-        }
+        // case 'edit_blogPost' : {
+        //     return state.map(blogPost => {
+        //             return blogPost.id === action.payload.id ? action.payload : blogPost;
+        //             })
+        // }
         // case 'add_blogPost' : {
         //     return [...state, {
         //         id : Math.floor(Math.random() * 99999),
@@ -20,9 +18,9 @@ const blogReducer = (state, action) => {
         //         content: action.payload.content}];
         //     }
 
-        case 'delete_blogPost' : {
-            return state.filter((blogPost) => blogPost.id !== action.payload);
-        }
+        // case 'delete_blogPost' : {
+        //     return state.filter((blogPost) => blogPost.id !== action.payload);
+        // }
 
         case 'get_blogPosts' : {
             return action.payload;
@@ -66,7 +64,6 @@ const editBlogPost = (dispatch) => {
     return async (id,title,content,callback) => {
 
         await jsonServer.put(`/blogposts/${id}`,{title,content})
-
         // dispatch({type: 'edit_blogPost', payload: {id,title,content}});
         callback();
     } 

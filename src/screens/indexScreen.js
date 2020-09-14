@@ -33,7 +33,7 @@ const indexScreen = ({navigation}) => {
                                     <View style={styles.mainView}>
                                         <Text style={styles.title}>{item.title}</Text>
                                         <TouchableOpacity onPress={() => {deleteBlogPost(item.id)}} >
-                                        <Entypo style={styles.TrashIcon} name="trash" size={25} color="black" />
+                                            <Entypo style={styles.TrashIcon} name="trash" size={25} color="black" />
                                         </TouchableOpacity>
                                     </View>
                                 </TouchableOpacity>
