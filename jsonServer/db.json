@@ -1,7 +1,19 @@
 {
-    "blogposts" : [{
-        "id": 1,
-        "title": "Test Test Tiitle",
-        "content": "Bla bl;a kehflohfbvkde"
-    }]
+  "blogposts": [
+    {
+      "id": 1,
+      "title": "Test Test Tiitle",
+      "content": "Bla bla kehflohfbvkde"
+    },
+    {
+      "title": "Heye",
+      "content": "Jeue",
+      "id": 2
+    },
+    {
+      "title": "Test",
+      "content": "Bdndj",
+      "id": 3
+    }
+  ]
 }
